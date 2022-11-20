@@ -1,0 +1,6 @@
+<form [formGroup]="editNote" (ngSubmit)="saveNote()">
+<textarea class="title" formControlName="title"></textarea>
+<textarea class="notepad" formControlName="doc"></textarea>
+<button type="Submit">Save</button>
+<button class="delete-note"type="button" (click)="deleteNote()"[routerLink]="'/'">Delete</button>
+</form>

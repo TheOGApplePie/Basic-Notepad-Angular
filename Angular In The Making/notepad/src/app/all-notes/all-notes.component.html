@@ -1,0 +1,13 @@
+<div class="container">
+    <h1 class="title">Notepad Application</h1>
+    <div class="title"*ngIf="numOfFiles==0 ngelse notesList">You do not have any notes in the notepad. Click the "new note" button to get started.</div>
+  <button class="new-note-button" (click)="newNote()"[routerLink]="['/edit-note', numOfFiles+1]">New Note</button>
+  <div #notesList
+    class="notes-list column"
+    *ngFor="let note of (allNotes | async)"
+    [routerLink]="['/edit-note', note.id]">
+    {{ note.title }} last edited on {{ note.date | date:"dd/MM/YYYY" }}
+    <br />
+    {{ note.doc | slice: 0:100 }}...
+  </div>
+</div>
